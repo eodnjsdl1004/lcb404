@@ -1,0 +1,117 @@
+awslcb- mysql 
+id:lcb404
+pw:lcb12345
+
+putty
+ 
+ubuntu
+
+sudo 관리자 권한으로 실행
+
+ls -al(현재 폴더 파일 확인)
+pwd(현재 디렉토리 구조)
+cd 폴더명(파일 이동)
+cd.. (한단계 위로)
+/ (절대경로이동)
+
+/home (사용자 홈 디렉토리)
+/usr (응용프로그램 저장소)
+/etc (설정프로그램 저장소)
+/var (로그파일 저장소)
+
+
+1.ubuntu update
+
+sudo apt-get update
+
+2. java install
+sudo apt-get install openjdk-8-jre
+sudo apt-get install openjdk-8-jdk
+
+3. java compile, javainstruction check
+
+java -version
+javac -version
+
+4. java location
+
+which java
+
+======================================================================
+
+5. tomcat install(8버전 이하로)
+
+sudo apt-get install tomcat8
+
+
+6. tomcat version check
+
+sudo /usr/share/tomcat8/bin/version.sh
+
+
+=======================================================================
+
+
+
+7. aws 8181 포트를 열고, 
+우분트에서 ufw 명령으로 8181포트를 열어준다
+
+sudo ufw allow (허용 포트번호 8181)/tcp
+sudo ufw allow 8181/tcp
+
+8. tomcat 실행 및 중지
+
+sudo service tomcat8 start
+
+sudo service tomcat8 stop
+
+
+9. 톰캣의 로그 확인
+cd /var/lib/tomcat8/logs
+*********************************************
+sudo tail -f /var/log/tomcat8/catalina.out
+*********************************************
+
+10. 톰캣 포트변경
+cd /var/lib/tomcat8/conf
+
+ls -al
+
+sudo nano server.xml
+
+
+***별도***
+curl -O https://gist.githubusercontent.com/lesstif/cd26f57b7cfd2cd55241b20e05b5cd93/raw/InstallCert.java
+
+
+javac InstallCert.java
+
+java -cp ./ InstallCert 13.209.171.25:8181
+**********
+
+
+10. filezila로 배포하기전 권한 설정
+
+sudo chmod -R 777 /var/lib/tomcat8/webapps
+sudo chown -R tomcat8:tomcat8 /var/lib/tomcat8/webapps
+
+11. 톰캣 재실행 후에 다시한 번 권한을 준다.(위에꺼)
+
+
+
+12. 파일 업로드 처리
+
+cd /var
+sudo mkdir 파일명 (폴더 생성)
+
+폴더에 권한 부여
+
+sudo chmod -R 777 /var/upload
+
+sudo chown -R tomcat8:tomcat8 /var/upload
+
+java에서 ubuntu 경로로 변경
+
+
+
+
